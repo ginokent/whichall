@@ -1,0 +1,5 @@
+#!/bin/sh
+
+whichall() { for cmd in "$@"; do out=$(echo "$PATH" | tr : '\n' | xargs -I@ ls -1 @/"$cmd" 2>/dev/null); [ "$out" ] && echo "$out"; done; }
+
+whichall "$@"
