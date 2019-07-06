@@ -1,5 +1,5 @@
 #!/bin/sh
 
-whichall() { for cmd in "$@"; do out=$(echo "$PATH" | tr : '\n' | xargs -I@ sh -c "test -f '@/$cmd' && ls '@/$cmd'"); [ "$out" ] && echo "$out"; done; }
+whichall() { for cmd in "$@"; do out=$(echo "$PATH" | tr : '\n' | xargs -I@ sh -c "test -f '@/$cmd' && ls '@/$cmd'" | sort -u); [ "$out" ] && echo "$out"; done; }
 
 whichall "$@"
